@@ -92,7 +92,7 @@ namespace rpnx
      @code
       #include "rpnx/environment.hpp"
      @endcode
-     */
+    */
     std::filesystem::path current_path();
 
 
