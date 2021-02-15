@@ -20,9 +20,22 @@
 
 namespace rpnx
 {
-  /** Gets an environment variable
-  */
-  std::optional<std::string> get_environment_variable(std::string const & key);
+
+
+
+	/** This mutex is locked when using environment functions, to prevent race conditions.
+	*/
+	std::mutex environment_mutex;
+
+	/** Gets an environment variable in a thread safe manner.
+	*/
+	std::optional<std::string> get_environment_variable(std::string const& key);
+
+
+	/** Sets an environment variable in a thread safe manner.
+	*/
+	void set_environment_variable(std::string const& key, std::string const& value);
+
 
 
 }
